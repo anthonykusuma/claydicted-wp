@@ -1,12 +1,12 @@
 {
-  "name": "upstatement/timber-starter-theme",
-  "description": "Starter theme to build a Timber theme",
+  "name": "anthonykusuma/claydicted-wp",
+  "description": "Claydicted theme for WordPress. Built on Timber.",
   "type":"wordpress-theme",
   "license": "MIT",
   "authors": [
     {
-      "email": "jared@upstatement.com",
-      "name": "jarednova"
+      "email": "hi@anhonykusuma.com",
+      "name": "anthonykusuma"
     }
   ],
   "repositories": [

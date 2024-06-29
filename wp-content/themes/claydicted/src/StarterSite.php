@@ -1,5 +1,6 @@
 <?php
 
+use Timber\Timber;
 use Timber\Site;
 
 /**
@@ -10,6 +11,7 @@ class StarterSite extends Site {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'dequeue_jquery_frontend') );
 
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
 		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
@@ -43,6 +45,7 @@ class StarterSite extends Site {
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['main_menu']  = Timber::get_menu('Main Menu');
 		$context['footer_menu']  = Timber::get_menu('Footer Menu');
+		$context['cta_menu'] = Timber::get_menu('CTA Menu');
 		$context['site']  = $this;
 
 		return $context;
@@ -143,4 +146,10 @@ class StarterSite extends Site {
 
 	    return $options;
 	}
+
+	function dequeue_jquery_frontend() {
+		if ( !is_admin() ) {
+		  wp_dequeue_script( 'jquery' );
+		}
+	  }
 }

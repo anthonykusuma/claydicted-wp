@@ -5,11 +5,13 @@
  */
 
 // Load Composer dependencies.
+use Timber\Timber;
+
 require_once __DIR__ . '/vendor/autoload.php';
 
 require_once __DIR__ . '/src/StarterSite.php';
 
-Timber\Timber::init();
+Timber::init();
 
 // Sets the directories (inside your theme) to find .twig files.
 Timber::$dirname = [ 'templates', 'views' ];
